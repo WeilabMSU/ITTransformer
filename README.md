@@ -218,50 +218,45 @@ python -u main/generate_embedding_task.py \
 
 ### 1. Datasets
 
-
+Details for the used datasets. [README_FILE](
+https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/readme_file.md)
 
 | Purpose             | Dataset   | Size  | Properties Used                                              |
 |---------------------|-----------|-------|--------------------------------------------------------------|
-| Pretraining         | ARC-MOF   | 520,835 | MOF structures only                                          |
-|                     | MC-COF    | 69,840  | COF structures only (Materials Cloud)                        |
-|                     | CoRE-COF  | 1,242   | COF structures only (CoRE-COF version 7)                     |
-|                     | PPN       | 10,237  | Amorphous PPN structures only                                |
-|                     | IZA-SC    | 242     | Zeolite structures only                                      |
-| Downstream (MOFs)   | Henry's constant of N₂ (mol/kg/Pa) | 4,744 | Henry constant for N₂ |
-|                     | Henry's constant of O₂ (mol/kg/Pa) | 5,036 | Henry constant for O₂ |
-|                     | N₂ uptake (mol/kg)                 | 5,132 | Uptake for N₂          |
-|                     | O₂ uptake (mol/kg)                 | 5,241 | Uptake for O₂          |
-|                     | Self-diffusivity of N₂ at 1 bar (cm²/s) | 5,056 | Self-diffusivity for N₂ at 1 bar |
-|                     | Self-diffusivity of N₂ at infinite dilution (cm²/s) | 5,192 | Self-diffusivity for N₂ at infinite dilution |
-|                     | Self-diffusivity of O₂ at 1 bar (cm²/s) | 5,223 | Self-diffusivity for O₂ at 1 bar |
-|                     | Self-diffusivity of O₂ at infinite dilution (cm²/s) | 5,097 | Self-diffusivity for O₂ at infinite dilution |
-|                     | SRS       | 2,179   | Solvent-removal stability (binary classification)            |
-|                     | TST       | 3,132   | Thermal stability temperature (K)                            |
-|                     | QMOF-BD   | 20,375  | Bandgap (eV)                                                 |
-|                     | CO₂–Henry | 9,525   | CO₂ Henry constant (log k_H; k_H in mol·kg⁻¹·Pa⁻¹)           |
-| Downstream (COFs)   | MC-COF    | 69,840  | CH₄ uptake at 65 bar and 5.8 bar (cm³(STP)·cm⁻³)             |
-| Downstream (PPNs)   | hPPN      | 17,846  | CH₄ uptake at 1 bar and 65 bar (cm³(STP)·cm⁻³)               |
-| Downstream (ZEOs)   | ZEO–H     | 215     | Henry constant at low P ((g/L)/bar), max loading at 403 bar (g/L) |
+| Pretraining         | [ARC-MOF](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/ARC-MOF_cifs.tar.gz)   | 520,835 | MOF structures only                                          |
+|                     | [MC-COF ](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/cof_materialscloud.tar.tz)   | 69,840  | COF structures only (Materials Cloud)                        |
+|                     | [CoRE-COF](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/core_cof_v7.tar.gz)  | 1,242   | COF structures only (CoRE-COF version 7)                     |
+|                     | [PPN](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/AmorphousPPNs_cifs.tar.gz)       | 10,237  | Amorphous PPN structures only                                |
+|                     | [IZA-SC](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/IZA_SC_cifs.tar.gz)    | 242     | Zeolite structures only                                      |
+| Downstream (MOFs)   | Henry's constant of N₂ (mol/kg/Pa), [Task8](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/O2N2selectivity8tasks.tar.gz) | 4,744 | Henry constant for N₂ |
+|                     | Henry's constant of O₂ (mol/kg/Pa), [Task8](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/O2N2selectivity8tasks.tar.gz) | 5,036 | Henry constant for O₂ |
+|                     | N₂ uptake (mol/kg), [Task8](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/O2N2selectivity8tasks.tar.gz)                 | 5,132 | Uptake for N₂          |
+|                     | O₂ uptake (mol/kg), [Task8](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/O2N2selectivity8tasks.tar.gz)                 | 5,241 | Uptake for O₂          |
+|                     | Self-diffusivity of N₂ at 1 bar (cm²/s), [Task8](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/O2N2selectivity8tasks.tar.gz) | 5,056 | Self-diffusivity for N₂ at 1 bar |
+|                     | Self-diffusivity of N₂ at infinite dilution (cm²/s), [Task8](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/O2N2selectivity8tasks.tar.gz) | 5,192 | Self-diffusivity for N₂ at infinite dilution |
+|                     | Self-diffusivity of O₂ at 1 bar (cm²/s), [Task8](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/O2N2selectivity8tasks.tar.gz) | 5,223 | Self-diffusivity for O₂ at 1 bar |
+|                     | Self-diffusivity of O₂ at infinite dilution (cm²/s), [Task8](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/O2N2selectivity8tasks.tar.gz) | 5,097 | Self-diffusivity for O₂ at infinite dilution |
+|                     | [SRS](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/solvent_removal_stability.tar.gz)       | 2,179   | Solvent-removal stability (binary classification)            |
+|                     | [TST](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/thermal_stability.tar.gz)       | 3,132   | Thermal stability temperature (K)                            |
+|                     | [QMOF-BD](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/qMOF_bandgap_v14.tar.gz)   | 20,375  | Bandgap (eV)                                                 |
+|                     | [CO₂–Henry](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/mof_co2_henry.tar.gz) | 9,525   | CO₂ Henry constant (log k_H; k_H in mol·kg⁻¹·Pa⁻¹)           |
+| Downstream (COFs)   | [MC-COF](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/coreMOF2019_multiple_top_cluster.tar.gz)    | 69,840  | CH₄ uptake at 65 bar and 5.8 bar (cm³(STP)·cm⁻³)             |
+| Downstream (PPNs)   | [hPPN ](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/hPPNs.tar.gz)     | 17,846  | CH₄ uptake at 1 bar and 65 bar (cm³(STP)·cm⁻³)               |
+| Downstream (ZEOs)   | [ZEO–H](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/zeolit_hydrogen.tar.gz)     | 215     | Henry constant at low P ((g/L)/bar), max loading at 403 bar (g/L) |
 
 
 ---
 
 ### 2. Pretrained Model
 
-Download pretrained weights: [Link](www.google.com)
-Or via `wget`:
-
-```bash
-wget link_to_pretrained_model.tar.pth
-```
+Download pretrained weights: [Download (111M)](https://weilab.math.msu.edu/Downloads/ITTransformer/model_collection/pretrained_model_last_e200.pth.tar)
 
 ---
 
 ### 3. Downstream Models and Predictions
 
-* Pretrained model 1: [Download](www.google.com)
-* Pretrained model 2: [Download](www.google.com)
-* Pretrained model 3: [Download](www.google.com)
+* All scratch models for downstream tasks: [Download (7.5G)](https://weilab.math.msu.edu/Downloads/ITTransformer/model_collection/all_scratchs_models.tar.gz)
+* All finetuned models for downstream tasks: [Download (7.5G)](https://weilab.math.msu.edu/Downloads/ITTransformer/model_collection/all_finetuned_models.tar.gz)
 
 ---
 
