@@ -121,7 +121,7 @@ Required arguments:
 
 * `--features-folder`: Path to folder of feature `.npz` files.
 * `--label-csv`: Two-column CSV file: `[file_id, label]` (no header).
-* `--pretrained-model`: Path to pretrained model checkpoint (optional).
+* `--pretrained-model`: Path to pretrained model checkpoint (optional). Can be download from [here](#2-pretrained-model)
 * `--save-top-n`: Number of best checkpoints to keep (default: 1), which will be used for ensemble prediction during testing.
 * `--num-labels`: Number of labels (1 for regression).
 
