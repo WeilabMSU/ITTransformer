@@ -205,9 +205,9 @@ def predict_and_save_single(model, test_loader, test_file_ids, original_labels, 
             
             part0, part1, part2, graph_data_tuple = inputs
             # Convert input tensors to float32 before moving to device
-            part0 = part0.to(device)
-            part1 = part1.to(device)
-            part2 = part2.to(device)
+            part0 = part0.to(dtype=torch.float32).to(device)
+            part1 = part1.to(dtype=torch.float32).to(device)
+            part2 = part2.to(dtype=torch.float32).to(device)
             
             atom_fea, nbr_fea, nbr_fea_idx, cluster_indices, crystal_atom_idx = graph_data_tuple
             # Convert graph features to float32 before moving to device

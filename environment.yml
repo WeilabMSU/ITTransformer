@@ -1,56 +1,25 @@
 name: ITT_env
 channels:
   - conda-forge
-  - pytorch
   - defaults
 dependencies:
   # --- core, portable conda deps ---
-  - python=3.10           # choose one; 3.10/3.11 are broadly compatible
+  - python=3.12
   - pip
-  - numpy>=1.24
-  - pandas>=2.0
-  - scipy>=1.10
-  - scikit-learn>=1.3
-  - matplotlib>=3.7
-  - seaborn>=0.13
-  - networkx>=3.1
-  - pyyaml>=6
-  - tqdm>=4.66
-  - certifi                # keep TLS bits portable
-  - openssl
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - networkx
+  - tqdm
 
   # --- python packages that are fine via pip on all OSes ---
   - pip:
-      # DL stack (CPU by default; macOS uses MPS automatically if available)
       - torch>=2.2
       - torchvision>=0.17
       - torchaudio>=2.2
-      - pytorch-lightning>=2.2
-      - timm>=0.9
-      - tensorboard>=2.13
-      - tensorboardx>=2.6
-
-      # Materials / topology
-      - gudhi>=3.11
-      - ase>=3.24
-      - pymatgen>=2024.0.0
-      - spglib>=2.0
-
-      # NLP / HF ecosystem
-      - transformers>=4.40
-      - tokenizers>=0.15
-      - huggingface-hub>=0.22
-      - safetensors>=0.4
-
-      # Utilities you used
-      - requests>=2.31
-      - plotly>=5.20
-      - rich>=13
-      - jinja2>=3.1
-      - joblib>=1.3
-      - orjson>=3.9
-      - pydantic>=2.6
-      - pydantic-settings>=2.2
-      - python-dotenv>=1.0
-      - typer>=0.12
-      - bitarray>=2.8
+      - gudhi==3.11.0
+      - pymatgen==2025.6.14
+      - bitarray==3.4.2

@@ -332,9 +332,9 @@ def validate(val_loader, model, device, epoch, args, label_scaler):
             
             part0, part1, part2, graph_data_tuple = inputs
             # Convert input tensors to float32 before moving to device
-            part0 = part0.to(device)
-            part1 = part1.to(device)
-            part2 = part2.to(device)
+            part0 = part0.to(dtype=torch.float32).to(device)
+            part1 = part1.to(dtype=torch.float32).to(device)
+            part2 = part2.to(dtype=torch.float32).to(device)
             
             atom_fea, nbr_fea, nbr_fea_idx, cluster_indices, crystal_atom_idx = graph_data_tuple
             # Convert graph features to float32 before moving to device
@@ -556,9 +556,9 @@ def evaluate_and_save_predictions_ensemble(model, model_states, test_loader, tes
             
             part0, part1, part2, graph_data_tuple = inputs
             # Convert input tensors to float32 before moving to device
-            part0 = part0.to(device)
-            part1 = part1.to(device)
-            part2 = part2.to(device)
+            part0 = part0.to(dtype=torch.float32).to(device)
+            part1 = part1.to(dtype=torch.float32).to(device)
+            part2 = part2.to(dtype=torch.float32).to(device)
             
             atom_fea, nbr_fea, nbr_fea_idx, cluster_indices, crystal_atom_idx = graph_data_tuple
             # Convert graph features to float32 before moving to device

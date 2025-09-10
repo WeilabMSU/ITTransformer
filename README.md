@@ -23,7 +23,6 @@ This repository contains the source code for the **Interaction Topological Trans
   - [Installation](#installation)
     - [1. Clone the repository](#1-clone-the-repository)
     - [2. Create a conda environment](#2-create-a-conda-environment)
-    - [3. Install ITTransformer](#3-install-ittransformer)
   - [Usage](#usage)
     - [1. Data Preprocessing](#1-data-preprocessing)
     - [2. Pretraining](#2-pretraining)
@@ -58,19 +57,23 @@ cd ITTransformer
 
 ### 2. Create a conda environment
 
+Key dependencies (tested):
+* torch==2.7.1
+* gudhi==3.11.0
+* pymatgen==2025.6.14
+* bitarray==3.4.2
+* scikit-learn==1.6.1
+* numpy==2.2.6
+* pandas==2.2.3
+* scipy==1.15.3
+
+or
+
 You can reproduce the environment using the provided `environment.yml`. By default, the environment will be created with the name `ITT_env`:
 
 ```bash
 conda env create -f environment.yml
 conda activate ITT_env
-```
-
-### 3. Install ITTransformer
-
-Install the package in editable mode:
-
-```bash
-pip install -e .
 ```
 
 ---
@@ -79,14 +82,12 @@ pip install -e .
 
 ### 1. Data Preprocessing
 
-* `input_path`: Path to input CIF file, directory, or folder of `.npz` files for combining.
+* `input_path`: Path to input CIF file `.cif` for preprocessing.
 * `--output-file`: Path to save the generated features as a `.npz` file.
 
 ```bash
 # Minimal example
-python scripts/func_generate_pih_initial_graph.py \
-    examples/example_cifs/ABEYEN_clean.cif \
-    --output-file examples/example_out/ABEYEN_clean.npz
+python scripts/func_generate_pih_initial_graph.py examples/example_cifs/AQUCOG_clean.cif --output-file examples/example_out/AQUCOG_clean.npz
 ```
 
 ---
@@ -102,7 +103,7 @@ Required arguments:
 
 ```bash
 python -u main/pretrained_masked_LM_task.py \
-    --pretraining-data data/pretrain_features.tar \
+    --pretraining-data examples/example_npzs.tar \
     --label-csv examples/example_id_for_pretrain.csv \
     --save-path examples/example_out \
     --epochs 10 \
@@ -152,6 +153,7 @@ python -u main/finetune_task.py \
     --label-csv examples/example_id_label_classification.csv \
     --save-path examples/example_out \
     --num-labels 3 \
+    --task classification \
     --epochs 10 \
     --batch-size 32 \
     --standardize-labels \
@@ -173,7 +175,7 @@ python -u main/finetune_task.py \
 **Regression task**
 
 ```bash
-python -u main/finetune_task.py \
+python -u main/prediction_task.py \
     --features-folder examples/example_npzs \
     --label-csv examples/example_id_label_classification.csv \
     --model-paths examples/example_out/model_best.pth.tar \
@@ -185,13 +187,13 @@ python -u main/finetune_task.py \
 **Classification task**
 
 ```bash
-python -u main/finetune_task.py \
+python -u main/prediction_task.py \
     --features-folder examples/example_npzs \
     --label-csv examples/example_id_label_classification.csv \
     --model-paths examples/example_out/model_best.pth.tar \
     --feature-scaler main/itt/feature_scaler_from_pretrained_data.sav \
     --task classification \
-    --num-labels 2 \
+    --num-labels 3 \
     --output-csv examples/example_out/out_predictions_classification.csv
 ```
 
@@ -205,13 +207,13 @@ Generate latent embeddings for analysis.
 python -u main/generate_embedding_task.py \
     --model-path examples/example_out/model_best.pth.tar \
     --features-folder examples/example_npzs \
-    --label-csv datasets/O2N2_Selfdiffusion.csv \
-    --output-path examples/example_out/embeddings.npy \
+    --label-csv examples/example_id_label_regression.csv \
+    --output-path examples/example_out/example_embeddings \
     --embedding-type cls \
-    --batch-size 128 \
+    --batch-size 32 \
     --standardize-features \
     --feature-scaler main/itt/feature_scaler_from_pretrained_data.sav \
-    --model-type pretrained
+    --model-type finetuned
 ```
 
 ---
@@ -222,6 +224,8 @@ python -u main/generate_embedding_task.py \
 
 Details for the used datasets. [README_FILE](
 https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/readme_file.md)
+
+Structure file ids are provided [here](https://weilab.math.msu.edu/Downloads/ITTransformer/dataset_collection/pretraine_structure_properties.csv)
 
 | Purpose             | Dataset   | Size  | Properties Used                                              |
 |---------------------|-----------|-------|--------------------------------------------------------------|
