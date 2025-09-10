@@ -6,11 +6,19 @@
 
 ---
 
+## Introduction
+
+This repository contains the source code for the **Interaction Topological Transformer (ITT)**, a deep learning framework for predicting properties of porous materials, including **MOFs, COFs, PPNs, and ZEOs**.
+
+**Keywords**: interaction topology, persistent interaction homology, porous materials, transformer.
+
+---
+
 ## Table of Contents
 
 - [ITTransformer](#ittransformer)
-  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
+  - [Table of Contents](#table-of-contents)
   - [Model Framework](#model-framework)
   - [Installation](#installation)
     - [1. Clone the repository](#1-clone-the-repository)
@@ -27,14 +35,8 @@
     - [2. Pretrained Model](#2-pretrained-model)
     - [3. Downstream Models and Predictions](#3-downstream-models-and-predictions)
   - [Contributors](#contributors)
+  - [License](#license)
 
----
-
-## Introduction
-
-This repository contains the source code for the **Interaction Topological Transformer (ITT)**, a deep learning framework for predicting properties of porous materials, including **MOFs, COFs, PPNs, and ZEOs**.
-
-**Keywords**: interaction topology, persistent interaction homology, porous materials, transformer.
 
 ---
 
@@ -264,3 +266,9 @@ Download pretrained weights: [Download (111M)](https://weilab.math.msu.edu/Downl
 
 ITTransformer was developed by [Dong Chen](https://github.com/ChenDdon) and is maintained by [WeiLab at MSU Math](https://github.com/WeilabMSU).
 
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
