@@ -1,6 +1,6 @@
 # ITTransformer
 
-**Interaction Topological Transformer for Multiscale Learning in Porous Materials**
+**Interaction Topology Theory Deciphers Multiscale Codes of MOF-like Materials**
 
 **Authors**: Dong Chen, Jian Liu, Chun-Long Chen, and Guo-Wei Wei
 
